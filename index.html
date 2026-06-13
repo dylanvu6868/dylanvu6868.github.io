@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vu Hai Duong — AI / ML Engineer</title>
+<meta name="description" content="Vu Hai Duong (Vũ Hải Dương) — final-year AI engineer at FPT University. Computer vision, retrieval-augmented LLMs (RAG), and on-device ML that ships to the real world.">
+<meta name="author" content="Vu Hai Duong">
+<meta name="theme-color" content="#5B21E0">
+<link rel="canonical" href="https://dylanvu6868.github.io/">
+
+<!-- favicon: inline SVG (neural node mark, no extra file) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235B21E0'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='9' cy='10' r='2.4'/%3E%3Ccircle cx='9' cy='22' r='2.4'/%3E%3Ccircle cx='23' cy='16' r='2.8'/%3E%3Cpath d='M11 11 21 15M11 21 21 17'/%3E%3C/g%3E%3C/svg%3E">
+
+<!-- Open Graph / social share -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vu Hai Duong — AI / ML Engineer">
+<meta property="og:description" content="Computer vision, RAG, and on-device ML that ships — even on a $200 phone.">
+<meta property="og:url" content="https://dylanvu6868.github.io/">
+<meta property="og:image" content="https://dylanvu6868.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vu Hai Duong — AI / ML Engineer">
+<meta name="twitter:description" content="Computer vision, RAG, and on-device ML that ships — even on a $200 phone.">
+<meta name="twitter:image" content="https://dylanvu6868.github.io/assets/og-cover.png">
+
+<!-- structured data: Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vu Hai Duong",
+  "alternateName": "Vũ Hải Dương",
+  "jobTitle": "AI / ML Engineer",
+  "url": "https://dylanvu6868.github.io/",
+  "email": "mailto:dylanvu6868@gmail.com",
+  "telephone": "+84976774094",
+  "address": { "@type": "PostalAddress", "addressLocality": "Hanoi", "addressCountry": "VN" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "FPT University" },
+  "knowsAbout": ["Computer Vision", "Retrieval-Augmented Generation", "Deep Learning", "PyTorch", "Machine Learning Engineering"],
+  "sameAs": [
+    "https://github.com/dylanvu6868",
+    "https://www.linkedin.com/in/duong-hai-vu"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#5B21E0;        /* electric violet — intelligence / neural */
+    --accent-deep:#2C0F7A;   /* deep field + footer */
+    --ink:#13111C;           /* body text */
+    --paper:#FFFFFF;         /* page bg */
+    --mist:#EFEAFC;          /* pale tint sections */
+    --line:#E2DAF7;          /* hairlines */
+    --card:#FFFFFF;          /* card surfaces */
+    --muted:#4a465c;         /* body small text */
+    --muted-2:#6a6580;       /* labels */
+    --muted-3:#7a7592;       /* tags / mono meta */
+    --accent-text:var(--accent); /* accent used as TEXT on light surfaces (lightens in dark) */
+    --font-display:"Anton",sans-serif;
+    --font-body:"Inter",sans-serif;
+    --font-mono:"Space Mono",monospace;
+    /* motion — restrained / cinematic preset (pairs with this editorial style) */
+    --dur:.6s;                          /* entrances / reveals */
+    --dur-fast:.22s;                    /* hover / micro-interactions */
+    --ease:cubic-bezier(.22,1,.36,1);   /* smooth ease-out */
+    --travel:18px;                      /* entrance distance */
+    --stagger:70ms;                     /* step between siblings */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 2rem;}
+  .eyebrow{font-family:var(--font-mono);text-transform:uppercase;
+           letter-spacing:.18em;font-size:.7rem;color:var(--accent-text);}
+  ::selection{background:var(--accent);color:#fff;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  .nav{position:relative;z-index:5;display:flex;align-items:center;
+       justify-content:space-between;padding:1.5rem 2rem;max-width:1180px;margin:0 auto;}
+  .nav .mark{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;
+             color:#fff;text-decoration:none;}
+  .nav-menu{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0;}
+  .nav-menu a{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;
+              letter-spacing:.12em;text-decoration:none;color:rgba(255,255,255,.85);
+              background:linear-gradient(#fff,#fff) 0 100%/0 1.5px no-repeat;padding-bottom:2px;
+              transition:color var(--dur-fast) var(--ease),background-size var(--dur-fast) var(--ease);}
+  .nav-menu a:hover{color:#fff;background-size:100% 1.5px;}
+  .nav-cta{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;
+           letter-spacing:.12em;text-decoration:none;color:var(--accent-deep);
+           background:#fff;padding:.55rem .9rem;border-radius:2px;}
+  .nav-right{display:flex;align-items:center;gap:1.1rem;}
+  .lang-toggle{display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;
+       background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);
+       border-radius:2px;padding:.45rem .65rem;font-family:var(--font-mono);
+       font-size:.66rem;letter-spacing:.12em;line-height:1;}
+  .lang-toggle [data-lang]{color:rgba(255,255,255,.55);transition:color .15s ease;}
+  .lang-toggle [data-lang].active{color:#fff;font-weight:700;}
+  .lang-toggle .sep{color:rgba(255,255,255,.4);}
+  @media(max-width:760px){.nav-menu{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:var(--accent);color:#fff;overflow:hidden;
+        clip-path:polygon(0 0,100% 0,100% 92%,0 100%);padding-bottom:4rem;}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.16;
+        background-image:radial-gradient(circle at 1px 1px,#fff 1.4px,transparent 0);
+        background-size:34px 34px;pointer-events:none;}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.35fr .9fr;
+             gap:2rem;align-items:center;padding:2.5rem 0 4rem;}
+  .hero-left .eyebrow{color:rgba(255,255,255,.85);}
+  .role-line{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem;}
+  .role-line svg{width:18px;height:18px;}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;line-height:.84;
+           letter-spacing:-.025em;margin:.6rem 0 1.2rem;
+           font-size:clamp(3.4rem,11vw,8.2rem);}
+  .hero h1 .thin{display:block;}
+  .hero-tag{max-width:34ch;font-size:clamp(1rem,1.6vw,1.2rem);
+            color:rgba(255,255,255,.92);font-weight:500;}
+  .hero-tag b{font-weight:700;color:#fff;border-bottom:2px solid rgba(255,255,255,.5);}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;}
+  .btn{font-family:var(--font-mono);font-size:.78rem;text-transform:uppercase;
+       letter-spacing:.1em;text-decoration:none;padding:.8rem 1.2rem;border-radius:2px;}
+  .btn-solid{background:#fff;color:var(--accent-deep);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.6);color:#fff;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn{transition:transform .2s ease;}
+
+  /* masked headshot */
+  .portrait{position:relative;justify-self:center;width:min(330px,80vw);aspect-ratio:1/1;}
+  .portrait .frame{position:absolute;inset:0;background:var(--accent-deep);
+        clip-path:polygon(50% 0,93% 12%,100% 55%,78% 96%,28% 100%,3% 62%,8% 18%);
+        display:grid;place-items:center;overflow:hidden;
+        box-shadow:0 24px 60px rgba(0,0,0,.28);}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .portrait .monogram{font-family:var(--font-display);font-size:5rem;color:#fff;
+        opacity:.9;letter-spacing:.02em;}
+  .portrait .ring{position:absolute;inset:-14px;border:1.5px dashed rgba(255,255,255,.45);
+        clip-path:polygon(50% 0,93% 12%,100% 55%,78% 96%,28% 100%,3% 62%,8% 18%);}
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .portrait{order:-1;width:min(240px,62vw);}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:5.5rem 0;}
+  .sec-head{font-family:var(--font-display);text-transform:uppercase;
+            letter-spacing:-.015em;line-height:.9;
+            font-size:clamp(2.2rem,6vw,4.4rem);color:var(--accent-text);}
+  .reveal{opacity:0;transform:translateY(var(--travel));
+          transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  /* staggered cascade: the wrap is just a container, its children rise one after another */
+  .reveal[data-stagger]{opacity:1;transform:none;transition:none;}
+  .reveal[data-stagger]>*{opacity:0;transform:translateY(var(--travel));
+          transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+  .reveal[data-stagger].in>*{opacity:1;transform:none;}
+  /* hero load sequence: hidden only when JS will animate it (visible with no-JS / reduced motion) */
+  .js-anim .hero-anim{opacity:0;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--paper);}
+  .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start;}
+  .about-grid .lead{margin-left:0;}
+  .about p{margin:0 0 1rem;}
+  .about p.big{font-size:1.25rem;}
+  .about p.small{font-size:.95rem;color:var(--muted);}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem;}
+  .stat{border-top:3px solid var(--accent-text);padding-top:.7rem;}
+  .stat .n{font-family:var(--font-display);font-size:2.1rem;color:var(--ink);line-height:1;}
+  .stat .l{font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;
+           letter-spacing:.1em;color:var(--muted-2);margin-top:.3rem;}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:1.5rem;}}
+
+  /* ---------- FOCUS (three-up) ---------- */
+  .focus{background:var(--mist);}
+  .focus-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+  .fcard{background:var(--card);border:1px solid var(--line);padding:1.6rem;position:relative;}
+  .fcard .glyph{width:40px;height:40px;margin-bottom:1rem;stroke:var(--accent-text);}
+  .fcard h3{font-family:var(--font-display);text-transform:uppercase;color:var(--accent-text);
+            font-size:1.25rem;letter-spacing:-.01em;margin:0 0 .5rem;}
+  .fcard p{margin:0;font-size:.9rem;color:var(--muted);}
+  .fcard .tags{margin-top:1rem;font-family:var(--font-mono);font-size:.66rem;
+               color:var(--muted-3);letter-spacing:.04em;}
+  /* hover lift (transform only — stays 60fps) */
+  .fcard,.pcard{transition:transform var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease);}
+  .fcard:hover,.pcard:hover{transform:translateY(-6px);border-color:var(--accent-text);}
+  @media(max-width:860px){.focus-list{grid-template-columns:1fr;}}
+
+  /* ---------- WORK / PROJECTS ---------- */
+  .work-flag{display:grid;grid-template-columns:1.15fr 1fr;gap:0;margin-top:2.5rem;
+             border:1.5px solid var(--accent);}
+  .work-flag .body{padding:2rem;}
+  .work-flag .side{background:var(--accent);color:#fff;padding:2rem;position:relative;
+                   display:flex;flex-direction:column;justify-content:space-between;}
+  .badge{display:inline-block;font-family:var(--font-mono);font-size:.62rem;
+         text-transform:uppercase;letter-spacing:.12em;background:var(--accent);color:#fff;
+         padding:.3rem .55rem;border-radius:2px;}
+  .work-flag h3{font-family:var(--font-display);text-transform:uppercase;
+                font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:.95;letter-spacing:-.01em;
+                margin:.8rem 0 .8rem;color:var(--ink);}
+  .work-flag p{margin:0 0 1rem;font-size:.95rem;color:var(--muted);}
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.2rem;}
+  .metric .n{font-family:var(--font-display);font-size:1.7rem;line-height:1;}
+  .metric .l{font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;
+             letter-spacing:.08em;opacity:.85;margin-top:.25rem;}
+  .stack-line{font-family:var(--font-mono);font-size:.66rem;color:var(--muted-3);
+              letter-spacing:.03em;margin-top:1.2rem;}
+  .work-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+  .pcard{position:relative;border:1px solid var(--line);background:var(--card);padding:1.6rem 1.6rem 1.6rem 2.4rem;}
+  .pcard .vlabel{position:absolute;left:.5rem;top:1.4rem;writing-mode:vertical-rl;
+                 transform:rotate(180deg);font-family:var(--font-mono);font-size:.6rem;
+                 text-transform:uppercase;letter-spacing:.2em;color:var(--accent-text);}
+  .pcard h4{font-family:var(--font-display);text-transform:uppercase;color:var(--ink);
+            font-size:1.3rem;letter-spacing:-.01em;margin:0 0 .5rem;}
+  .pcard p{margin:0 0 .8rem;font-size:.88rem;color:var(--muted);}
+  .pcard .tags{font-family:var(--font-mono);font-size:.64rem;color:var(--muted-3);letter-spacing:.03em;}
+  @media(max-width:860px){.work-flag{grid-template-columns:1fr;}.work-cards{grid-template-columns:1fr;}}
+
+  /* ---------- JOURNEY (winding numbered) ---------- */
+  .journey{background:var(--accent-deep);color:#fff;overflow:hidden;}
+  .journey .sec-head{color:#fff;}
+  .journey .eyebrow{color:rgba(255,255,255,.8);}
+  .timeline{position:relative;margin-top:3rem;}
+  .curve{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+  .curve path{fill:none;stroke:rgba(255,255,255,.5);stroke-width:2;stroke-dasharray:7 9;}
+  .nodes{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;
+         align-items:start;}
+  .node{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+        backdrop-filter:blur(2px);padding:1rem;border-left:3px solid #fff;}
+  .node:nth-child(odd){transform:translateY(2.4rem);}
+  .node .num{font-family:var(--font-display);font-size:1.9rem;line-height:1;}
+  .node .yr{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;
+            color:rgba(255,255,255,.7);margin:.3rem 0;}
+  .node h4{margin:.2rem 0 .35rem;font-size:.92rem;text-transform:uppercase;letter-spacing:.02em;}
+  .node p{margin:0;font-size:.76rem;color:rgba(255,255,255,.78);}
+  @media(max-width:860px){
+    .nodes{grid-template-columns:1fr;gap:.9rem;padding-left:1rem;
+           border-left:2px dashed rgba(255,255,255,.4);}
+    .node:nth-child(odd){transform:none;}
+    .curve{display:none;}
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
+  .skill-row{border-top:1px solid var(--line);padding-top:1rem;}
+  .skill-row .k{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;
+                letter-spacing:.12em;color:var(--accent-text);}
+  .skill-row .v{margin-top:.4rem;font-size:.98rem;}
+  .pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem;}
+  .pill{font-family:var(--font-mono);font-size:.66rem;border:1px solid var(--line);
+        padding:.28rem .55rem;border-radius:2px;color:var(--muted);}
+  @media(max-width:760px){.skills-grid{grid-template-columns:1fr;}}
+
+  /* ---------- HONORS ---------- */
+  .honors{background:var(--mist);}
+  .honors-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:2.5rem;align-items:stretch;margin-top:2.5rem;}
+  .honor-hero{background:var(--accent);color:#fff;padding:2rem;position:relative;overflow:hidden;}
+  .honor-hero::before{content:"";position:absolute;inset:0;opacity:.16;
+        background-image:radial-gradient(circle at 1px 1px,#fff 1.4px,transparent 0);
+        background-size:30px 30px;}
+  .honor-hero>*{position:relative;}
+  .honor-hero .glyph{width:46px;height:46px;margin-bottom:1.2rem;}
+  .honor-hero .big{font-family:var(--font-display);text-transform:uppercase;
+        font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:.96;letter-spacing:-.01em;}
+  .honor-hero .term{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;
+        margin-top:.7rem;color:rgba(255,255,255,.88);}
+  .honor-list{display:flex;flex-direction:column;justify-content:center;}
+  .honor-list .lbl{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;
+        letter-spacing:.12em;color:var(--accent-text);margin-bottom:.4rem;}
+  .honor-row{display:flex;align-items:center;gap:.9rem;padding:.95rem 0;
+        border-bottom:1px solid var(--line);}
+  .honor-row svg{width:20px;height:20px;flex:none;fill:var(--accent);}
+  .honor-row .t{font-weight:600;font-size:.98rem;}
+  .honor-row .yr{margin-left:auto;font-family:var(--font-mono);font-size:.66rem;
+        letter-spacing:.08em;color:var(--muted-2);}
+  @media(max-width:760px){.honors-grid{grid-template-columns:1fr;gap:1.5rem;}}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .foot{background:var(--accent);color:#fff;clip-path:polygon(0 8%,100% 0,100% 100%,0 100%);}
+  .foot-in{padding:6rem 0 3rem;}
+  .foot h2{font-family:var(--font-display);text-transform:uppercase;line-height:.86;
+           letter-spacing:-.025em;font-size:clamp(2.6rem,9vw,6.5rem);margin:0 0 1.4rem;}
+  .foot a.email{font-family:var(--font-mono);font-size:clamp(.9rem,2.5vw,1.4rem);
+                color:#fff;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.6);}
+  .foot-links{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.4rem;
+              font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;
+              letter-spacing:.1em;}
+  .foot-links a{color:rgba(255,255,255,.9);text-decoration:none;display:flex;
+                align-items:center;gap:.45rem;}
+  .foot-links a:hover{color:#fff;}
+  .foot-links svg{width:15px;height:15px;}
+  .foot-bottom{margin-top:3.5rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.25);
+               font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;
+               color:rgba(255,255,255,.7);display:flex;justify-content:space-between;
+               flex-wrap:wrap;gap:.6rem;}
+
+  /* ---------- PROJECT CARD LINKS (View code / Live demo) ---------- */
+  .card-links{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.1rem;}
+  .card-links a{font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;
+                letter-spacing:.1em;text-decoration:none;color:var(--accent-text);
+                display:inline-flex;align-items:center;gap:.4rem;
+                border-bottom:1.5px solid transparent;transition:border-color var(--dur-fast) var(--ease);}
+  .card-links a:hover{border-color:currentColor;}
+  .card-links svg{width:14px;height:14px;}
+  .work-flag .side .card-links a{color:#fff;}   /* links on the violet flagship panel */
+
+  /* ---------- OPEN SOURCE (live GitHub) ---------- */
+  .oss{background:var(--paper);}
+  .oss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+  .repo{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--card);
+        padding:1.5rem;text-decoration:none;color:inherit;
+        transition:transform var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease);}
+  .repo:hover{transform:translateY(-6px);border-color:var(--accent);}
+  .repo h4{font-family:var(--font-display);text-transform:uppercase;color:var(--ink);
+           font-size:1.05rem;letter-spacing:-.01em;margin:0 0 .55rem;word-break:break-word;}
+  .repo p{margin:0 0 1.2rem;font-size:.84rem;color:var(--muted);flex:1;}
+  .repo .meta{display:flex;align-items:center;gap:1.1rem;font-family:var(--font-mono);
+              font-size:.64rem;color:var(--muted-2);letter-spacing:.04em;}
+  .repo .meta span{display:inline-flex;align-items:center;gap:.35rem;}
+  .repo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-text);}
+  .repo .meta svg{width:12px;height:12px;fill:currentColor;}
+  .oss-note{font-family:var(--font-mono);font-size:.72rem;color:var(--muted-2);margin-top:2rem;
+            letter-spacing:.04em;}
+  .oss-note a{color:var(--accent-text);}
+  @media(max-width:860px){.oss-grid{grid-template-columns:1fr;}}
+
+  /* ---------- ICON BUTTON (theme toggle) ---------- */
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+            width:34px;height:34px;color:#fff;background:rgba(255,255,255,.12);
+            border:1px solid rgba(255,255,255,.35);border-radius:2px;padding:0;}
+  .icon-btn svg{width:16px;height:16px;}
+  .icon-btn .moon{display:none;}
+  html[data-theme="dark"] .icon-btn .sun{display:none;}
+  html[data-theme="dark"] .icon-btn .moon{display:block;}
+
+  /* ---------- DARK THEME ---------- */
+  html[data-theme="dark"]{
+    --paper:#0F0B1A;        /* page bg */
+    --ink:#ECE9F6;          /* body text */
+    --mist:#171128;         /* tint sections */
+    --line:#2C2545;         /* hairlines */
+    --card:#181226;         /* card surfaces */
+    --muted:#B4AEC8;        /* body small text */
+    --muted-2:#928BAD;      /* labels */
+    --muted-3:#8A83A6;      /* tags */
+    --accent-text:#A78BFA;  /* lighter violet — readable on dark */
+  }
+  html[data-theme="dark"] body{background:var(--paper);color:var(--ink);}
+  html[data-theme="dark"] .work-flag h3,
+  html[data-theme="dark"] .pcard h4,
+  html[data-theme="dark"] .repo h4,
+  html[data-theme="dark"] .stat .n{color:var(--ink);}
+  html[data-theme="dark"] .honor-row svg{fill:var(--accent-text);}
+  /* hero / journey / footer keep their bold violet — intentionally unchanged */
+
+  /* ---------- REDUCED MOTION: honour the OS setting everywhere ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;scroll-behavior:auto !important;
+    }
+    .js-anim .hero-anim,.reveal,.reveal[data-stagger]>*{opacity:1 !important;transform:none !important;}
+  }
+</style>
+<script>
+  /* Mark <html> so the hero can hide pre-animation — only when motion is welcome,
+     so no-JS and reduced-motion visitors always see the content immediately. */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    document.documentElement.classList.add('js-anim');
+
+  /* Set the theme before first paint to avoid a flash: saved choice, else system preference. */
+  (function () {
+    var saved; try { saved = localStorage.getItem('site-theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark'
+                     : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <nav class="nav">
+    <a class="mark" href="#top">DYLAN&nbsp;VU</a>
+    <ul class="nav-menu">
+      <li><a href="#about" data-vi="Giới thiệu">About</a></li>
+      <li><a href="#focus" data-vi="Thế mạnh">Focus</a></li>
+      <li><a href="#work" data-vi="Dự án">Work</a></li>
+      <li><a href="#journey" data-vi="Hành trình">Path</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode / Đổi giao diện sáng-tối">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M19.4 4.6l-1.7 1.7M6.3 17.7l-1.7 1.7"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language / Đổi ngôn ngữ">
+        <span data-lang="en">EN</span><span class="sep">/</span><span data-lang="vi">VI</span>
+      </button>
+      <a class="nav-cta" href="#contact" data-vi="Liên hệ">Get in touch</a>
+    </div>
+  </nav>
+
+  <div class="wrap" id="top">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="role-line hero-anim">
+          <!-- neural node motif -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+            <circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/>
+            <circle cx="19" cy="12" r="2.4"/>
+            <path d="M7 6.6 17 11M7 17.4 17 13"/>
+          </svg>
+          <span class="eyebrow" data-vi="Kỹ sư AI / ML · Hà Nội">AI / ML Engineer · Hanoi</span>
+        </div>
+        <h1 class="hero-anim" data-vi="&lt;span class=&quot;thin&quot;&gt;Vũ Hải&lt;/span&gt;Dương"><span class="thin">Vu Hai</span>Duong</h1>
+        <p class="hero-tag hero-anim" data-vi="Tôi biến nghiên cứu thành những hệ thống chạy được thật — thị giác máy tính và
+          mô hình ngôn ngữ tăng cường truy xuất (RAG) hoạt động trong thế giới thực, &lt;b&gt;kể cả trên
+          một chiếc điện thoại 200 đô.&lt;/b&gt;">I turn research into systems that ship — computer vision and
+          retrieval-augmented language models that run in the real world, <b>even on a
+          $200 phone.</b></p>
+        <div class="hero-actions hero-anim">
+          <a class="btn btn-solid" href="#work" data-vi="Xem dự án tiêu biểu">See selected work</a>
+          <a class="btn btn-ghost" href="assets/Vu-Hai-Duong-CV.pdf" download data-vi="Tải CV">Download CV</a>
+          <a class="btn btn-ghost" href="#contact" data-vi="Cùng trò chuyện">Let's talk</a>
+        </div>
+      </div>
+      <div class="portrait hero-anim">
+        <span class="ring" aria-hidden="true"></span>
+        <div class="frame">
+          <!-- Drop your headshot at assets/headshot.jpg; the VHD monogram shows until then -->
+          <img src="assets/headshot.jpg" alt="Vu Hai Duong" onerror="this.style.display='none'">
+          <span class="monogram" aria-hidden="true">VHD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 01 — Giới thiệu">// 01 — About</span>
+    <h2 class="sec-head" style="margin:.4rem 0 2rem;" data-vi="Chinh phục<br>phần khó nhất">Built for the<br>hard part</h2>
+    <div class="about-grid">
+      <div>
+        <p class="big" data-vi="Sinh viên năm cuối ngành Trí tuệ nhân tạo tại Đại học FPT,
+          làm việc ở nơi mô hình gặp gỡ thực tế ngổn ngang.">Final-year Artificial Intelligence student at FPT University,
+          working where models meet messy reality.</p>
+      </div>
+      <div>
+        <p data-vi="Công việc của tôi trải dài toàn bộ quy trình AI ứng dụng — từ làm sạch tín hiệu EEG
+          thô trong phòng nghiên cứu, đến gán nhãn và huấn luyện mô hình phát hiện vật thể ngay tại
+          xưởng chế biến thực phẩm, cho tới xây dựng truy xuất lai để một mô hình ngôn ngữ
+          đưa ra câu trả lời có thể trích dẫn nguồn.">My work runs across the full stack of applied AI — from cleaning raw EEG
+          signals in a research lab, to labelling and training object detectors on a
+          food-processing factory floor, to wiring up hybrid retrieval so a language
+          model gives answers it can actually cite.</p>
+        <p class="small" data-vi="Tôi quan tâm nhất đến những phần ít hào nhoáng: khâu tiền xử lý giúp
+          mô hình bền vững, việc lượng tử hóa để đưa nó lên thiết bị giá rẻ, và khâu đánh giá
+          chứng minh nó hoạt động. Thành thạo Python và PyTorch, triển khai với FastAPI,
+          và grounding LLM bằng RAG.">I care most about the unglamorous parts: the preprocessing
+          that makes a model robust, the quantisation that gets it onto a cheap device,
+          and the evaluation that proves it works. Comfortable in Python and PyTorch,
+          shipping with FastAPI, and grounding LLMs with RAG.</p>
+        <div class="stats">
+          <div class="stat"><div class="n"><span class="count" data-to="99.0">99.0</span><span style="font-size:1.2rem;">%</span></div><div class="l" data-vi="Độ chính xác · AgriRAG">Test acc · AgriRAG</div></div>
+          <div class="stat"><div class="n"><span class="count" data-to="74">74</span><span style="font-size:1.2rem;">ms</span></div><div class="l" data-vi="Độ trễ trên thiết bị">On-device latency</div></div>
+          <div class="stat"><div class="n"><span class="count" data-to="3.42">3.42</span></div><div class="l" data-vi="GPA / 4.0">CGPA / 4.0</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOCUS ===== -->
+<section class="focus" id="focus">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 02 — Tôi làm gì">// 02 — What I do</span>
+    <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Ba thứ tôi<br>làm tốt">Three things I<br>build well</h2>
+    <div class="focus-list">
+      <div class="fcard">
+        <!-- bounding-box motif -->
+        <svg class="glyph" viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="2">
+          <path d="M4 11V4h7M29 4h7v7M36 29v7h-7M11 36H4v-7"/><rect x="13" y="13" width="14" height="14" rx="1"/>
+        </svg>
+        <h3 data-vi="Thị giác máy tính">Computer Vision</h3>
+        <p data-vi="Các pipeline phát hiện và nhận dạng trụ vững trước nhiễu của thực tế — phát hiện
+          vật thể với YOLOv8, OCR cho hóa đơn tiếng Việt, và phân loại ảnh trong điều kiện
+          mất cân bằng lớp.">Detection and recognition pipelines that survive real-world noise — YOLOv8
+          object detection, OCR for Vietnamese receipts, and image classification under
+          class imbalance.</p>
+        <div class="tags">YOLOv8 · OpenCV · PaddleOCR · VietOCR · EfficientNet</div>
+      </div>
+      <div class="fcard">
+        <!-- doc-chunk / retrieval motif -->
+        <svg class="glyph" viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="2">
+          <rect x="6" y="6" width="20" height="26" rx="1.5"/><path d="M30 12v22H14"/>
+          <path d="M11 14h10M11 19h10M11 24h7"/>
+        </svg>
+        <h3 data-vi="Ngôn ngữ &amp; RAG">Language &amp; RAG</h3>
+        <p data-vi="Sinh văn bản có căn cứ và trích dẫn được nguồn — truy xuất lai dense + từ khóa,
+          hợp nhất hạng đối ứng (RRF), tái xếp hạng bằng cross-encoder, và chia khối bám
+          cấu trúc trên các kho tài liệu kỹ thuật dài.">Grounded generation that can show its sources — hybrid dense + keyword
+          retrieval, reciprocal-rank fusion, cross-encoder re-ranking, and structure-aware
+          chunking over long technical corpora.</p>
+        <div class="tags">FAISS · BM25 · RRF · LangChain · LLaMA 3.3 · RAGAS</div>
+      </div>
+      <div class="fcard">
+        <!-- signal waveform motif -->
+        <svg class="glyph" viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round">
+          <path d="M3 20h5l3-11 5 22 4-15 3 8h11"/>
+        </svg>
+        <h3 data-vi="Kỹ thuật ML">ML Engineering</h3>
+        <p data-vi="Đưa mô hình ra khỏi notebook — lượng tử hóa FP16/TFLite, tối ưu độ trễ và
+          bộ nhớ cho phần cứng tầm trung, và backend FastAPI + SSE cho suy luận theo luồng.">Getting models out of the notebook — FP16/TFLite quantisation, latency and
+          memory budgeting for mid-range hardware, and FastAPI + SSE backends for
+          streaming inference.</p>
+        <div class="tags">PyTorch · TensorFlow · TFLite · Docker · FastAPI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORK ===== -->
+<section class="work" id="work">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 03 — Dự án tiêu biểu">// 03 — Selected work</span>
+    <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Những thứ tôi<br>đã hoàn thiện">Things I've<br>shipped</h2>
+
+    <!-- flagship -->
+    <div class="work-flag">
+      <div class="body">
+        <span class="badge" data-vi="Dự án chủ lực · Thị giác–Ngôn ngữ">Flagship · Vision-Language</span>
+        <h3 data-vi="AgriRAG — Nhận dạng bệnh lá lúa kết hợp RAG">AgriRAG — Rice Leaf Disease Recognition with RAG</h3>
+        <p data-vi="Hệ thống đầu-cuối chẩn đoán 10 loại bệnh trên lá lúa từ một bức ảnh, rồi giải
+          thích cách điều trị kèm trích dẫn nguồn. EfficientNetB0 với học chuyển giao hai giai
+          đoạn đạt 99,01% độ chính xác trên 15.023 ảnh, dùng Focal Loss và trọng số nghịch
+          tần để xử lý mất cân bằng 1,8:1.">An end-to-end system that diagnoses 10 rice-leaf diseases from a photo, then
+          explains the treatment with citations. EfficientNetB0 with two-stage transfer
+          learning hits 99.01% test accuracy across 15,023 images, with Focal Loss and
+          inverse-frequency weighting to handle a 1.8:1 imbalance.</p>
+        <p data-vi="Lớp trả lời có căn cứ là một pipeline RAG lai — truy xuất dense bằng FAISS,
+          tìm kiếm từ khóa BM25, hợp nhất hạng đối ứng và tái xếp hạng cross-encoder — với
+          chunking thông minh bám cấu trúc và truy xuất cha–con trên kho tài liệu nông
+          nghiệp ~340 trang, phục vụ bởi backend FastAPI + SSE chạy LLaMA-3.3-70B.">The grounded-answer layer is a hybrid RAG pipeline — FAISS dense retrieval,
+          BM25 keyword search, reciprocal-rank fusion and cross-encoder re-ranking — with
+          smart, structure-aware chunking and parent–child retrieval over a ~340-page
+          agricultural corpus, served by a FastAPI + SSE backend on LLaMA-3.3-70B.</p>
+        <div class="stack-line">Python · EfficientNetB0 · MobileNetV3 · FAISS · BM25 · RRF · LLaMA 3.3 · FastAPI</div>
+      </div>
+      <div class="side">
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,.8)" data-vi="Qua các con số">By the numbers</span>
+          <div class="metrics">
+            <div class="metric"><div class="n">0.989</div><div class="l">Macro F1</div></div>
+            <div class="metric"><div class="n">74 ms</div><div class="l" data-vi="Độ trễ · Snapdragon 680">Latency · Snapdragon 680</div></div>
+            <div class="metric"><div class="n">0.91</div><div class="l" data-vi="Độ trung thực RAGAS">RAGAS faithfulness</div></div>
+            <div class="metric"><div class="n">~195 MB</div><div class="l" data-vi="RAM trên thiết bị">On-device RAM</div></div>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.85);margin-top:1.4rem;" data-vi="TFLite lượng tử hóa FP16 — chạy ngoại tuyến trên điện thoại Android tầm trung.">
+          FP16-quantised TFLite — runs offline on a mid-range Android phone.</p>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/AgriRAG" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- project cards -->
+    <div class="work-cards">
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="Phát hiện Deepfake">Deepfake Detection</h4>
+        <p data-vi="Pipeline phát hiện phân loại video là thật hay đã bị chỉnh sửa, với tiền xử lý
+          video và trích xuất khuôn mặt chuyên biệt để tăng độ tin cậy trên các tập dữ liệu
+          giả mạo khuôn mặt.">A detection pipeline that classifies video as real or manipulated, with
+          dedicated video preprocessing and face extraction to lift reliability on
+          facial-forgery datasets.</p>
+        <div class="tags">Python · TensorFlow · OpenCV · Deep Learning</div>
+        <!-- TODO: repo is private — replace href with the real repo or live-demo URL, or remove -->
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="Hệ thống gợi ý phim">Film Recommendation System</h4>
+        <p data-vi="Hệ gợi ý lai kết hợp lọc theo nội dung và lọc cộng tác, với EDA, khai phá văn
+          bản và phân tích cảm xúc trên phần mô tả và đánh giá phim bằng TF-IDF và độ tương
+          đồng cosine.">A hybrid recommender blending content-based and collaborative filtering, with
+          EDA, text mining and sentiment analysis over movie overviews and reviews using
+          TF-IDF and cosine similarity.</p>
+        <div class="tags">Pandas · Scikit-learn · NLTK · VADER · TF-IDF · MLxtend</div>
+        <!-- TODO: repo is private — replace href with the real repo or live-demo URL, or remove -->
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4>Cooking Chatbot</h4>
+        <p data-vi="Chatbot gợi ý công thức nấu ăn dựa trên NLP — phân loại câu hỏi bằng mạng nơ-ron
+          PyTorch rồi truy xuất công thức phù hợp. Repo được mình ghim trên GitHub.">An NLP cooking-recipe chatbot — a PyTorch neural network classifies the query,
+          then retrieves matching recipes. My pinned GitHub project.</p>
+        <div class="tags">Python · PyTorch · NLP · NLTK</div>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/Cooking_Chatbot_Basics" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="Chatbot hỏi đáp PDF">Chat-with-PDF (RAG)</h4>
+        <p data-vi="Chatbot cho phép hỏi đáp trực tiếp trên nội dung file PDF — nhúng tài liệu, truy
+          xuất đoạn liên quan và trả lời có căn cứ từ chính tài liệu.">A chatbot that answers questions over the contents of a PDF — embed the
+          document, retrieve relevant chunks, and ground every answer in the source.</p>
+        <div class="tags">Python · LangChain · RAG · Embeddings</div>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/CHATBOT_IN4PDF" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OPEN SOURCE (live from GitHub) ===== -->
+<section class="oss" id="opensource">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 04 — Mã nguồn mở">// 04 — Open source</span>
+    <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Thêm trên<br>GitHub">More on<br>GitHub</h2>
+    <div class="oss-grid" id="repoGrid" aria-live="polite">
+      <p class="oss-note" data-vi="Đang tải dự án từ GitHub…">Loading projects from GitHub…</p>
+    </div>
+    <p class="oss-note" data-vi="Lấy trực tiếp từ &lt;a href=&quot;https://github.com/dylanvu6868&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github.com/dylanvu6868&lt;/a&gt; — xem tất cả repo tại đó.">Pulled live from <a href="https://github.com/dylanvu6868" target="_blank" rel="noopener">github.com/dylanvu6868</a> — browse them all there.</p>
+  </div>
+</section>
+
+<!-- ===== JOURNEY ===== -->
+<section class="journey" id="journey">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 05 — Hành trình đến nay">// 05 — The path so far</span>
+    <h2 class="sec-head" data-vi="Từ tín hiệu đến<br>hệ thống hoàn chỉnh">From signals to<br>shipped systems</h2>
+    <div class="timeline">
+      <svg class="curve" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+        <path class="draw" d="M40,210 C200,80 320,80 460,170 S720,260 960,110"/>
+      </svg>
+      <ol class="nodes" style="list-style:none;margin:0;padding:0;">
+        <li class="node"><div class="num">01</div><div class="yr" data-vi="2022">2022</div>
+          <h4 data-vi="Bắt đầu Cử nhân AI">Started BSc in AI</h4><p data-vi="Đại học FPT — Cử nhân Trí tuệ nhân tạo.">FPT University — Bachelor of Artificial Intelligence.</p></li>
+        <li class="node"><div class="num">02</div><div class="yr" data-vi="Th3 2024">Mar 2024</div>
+          <h4 data-vi="Thực tập sinh nghiên cứu">Research Trainee</h4><p data-vi="Phòng nghiên cứu FPT AI — tiền xử lý tín hiệu EEG &amp; tăng độ bền mô hình, dưới hướng dẫn của TS. Phan Duy Hùng.">FPT AI Research Lab — EEG signal preprocessing &amp; model robustness, under Prof. Phan Duy Hung.</p></li>
+        <li class="node"><div class="num">03</div><div class="yr" data-vi="Th4 2025">Apr 2025</div>
+          <h4 data-vi="Thực tập sinh AI">AI Intern</h4><p data-vi="C.P. Việt Nam — thị giác máy tính tại nhà máy: phát hiện heo bằng YOLOv8 &amp; pipeline OCR hóa đơn tiếng Việt.">C.P. Vietnam — on-site CV: YOLOv8 pig detection &amp; a Vietnamese-receipt OCR pipeline.</p></li>
+        <li class="node"><div class="num">04</div><div class="yr" data-vi="2025">2025</div>
+          <h4 data-vi="Hoàn thiện AgriRAG">Shipped AgriRAG</h4><p data-vi="Nhận dạng bệnh kết hợp thị giác–ngôn ngữ, chạy ngoại tuyến trên điện thoại tầm trung.">Vision-language disease recognition running offline on a mid-range phone.</p></li>
+        <li class="node"><div class="num">05</div><div class="yr" data-vi="2026">2026</div>
+          <h4 data-vi="Tốt nghiệp">Graduating</h4><p data-vi="Sẵn sàng cho các vị trí kỹ sư &amp; nghiên cứu AI / ML.">Open to AI / ML engineering &amp; research roles.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 06 — Bộ công cụ">// 06 — Toolkit</span>
+    <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Công cụ<br>nghề nghiệp">Tools of<br>the trade</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-row"><div class="k" data-vi="Ngôn ngữ">Languages</div><div class="v">Python, R</div></div>
+        <div class="skill-row" style="margin-top:1.4rem;"><div class="k" data-vi="Framework &amp; Thư viện">Frameworks &amp; Libraries</div>
+          <div class="pills">
+            <span class="pill">PyTorch</span><span class="pill">TensorFlow</span><span class="pill">Pandas</span>
+            <span class="pill">NumPy</span><span class="pill">OpenCV</span><span class="pill">LangChain</span><span class="pill">FastAPI</span>
+          </div></div>
+      </div>
+      <div>
+        <div class="skill-row"><div class="k" data-vi="Công cụ &amp; Cloud">Tools &amp; Cloud</div>
+          <div class="pills">
+            <span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Docker</span>
+            <span class="pill">SQL Server</span><span class="pill">Anaconda</span><span class="pill">IBM Cloud</span>
+          </div></div>
+        <div class="skill-row" style="margin-top:1.4rem;"><div class="k" data-vi="Nền tảng">Foundations</div>
+          <div class="v" style="font-size:.9rem;" data-vi="Chuyên ngành ML &amp; Deep Learning · NLP · Khoa học dữ liệu ứng dụng với R · IBM Full-Stack Developer · Tiếng Anh B2">ML &amp; Deep Learning Specializations · NLP · Applied Data Science with R · IBM Full-Stack Developer · English B2</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HONORS ===== -->
+<section class="honors" id="honors">
+  <div class="wrap reveal" data-stagger>
+    <span class="eyebrow" data-vi="// 07 — Thành tích">// 07 — Honors</span>
+    <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Được<br>ghi nhận">On the<br>record</h2>
+    <div class="honors-grid">
+      <div class="honor-hero">
+        <!-- star / award motif -->
+        <svg class="glyph" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+          <path d="M12 2 14.9 8.6 22 9.2l-5.4 4.6 1.7 6.9L12 17.1 5.7 20.7l1.7-6.9L2 9.2l7.1-.6z"/>
+        </svg>
+        <div class="big" data-vi="Sinh viên Xuất sắc<br>của Học kỳ">Excellent Student<br>of the Trimester</div>
+        <div class="term" data-vi="Danh hiệu cao nhất học kỳ · Thu 2025">Highest term distinction · Fall 2025</div>
+      </div>
+      <div class="honor-list">
+        <div class="lbl" data-vi="Sinh viên Giỏi của Học kỳ · ×4">Honorable Student of the Trimester · ×4</div>
+        <div class="honor-row">
+          <svg viewBox="0 0 24 24"><path d="M12 4 22 20H2z"/></svg>
+          <span class="t" data-vi="Sinh viên Giỏi của Học kỳ">Honorable Student of the Trimester</span><span class="yr" data-vi="Thu 2024">Fall 2024</span>
+        </div>
+        <div class="honor-row">
+          <svg viewBox="0 0 24 24"><path d="M12 4 22 20H2z"/></svg>
+          <span class="t" data-vi="Sinh viên Giỏi của Học kỳ">Honorable Student of the Trimester</span><span class="yr" data-vi="Xuân 2025">Spring 2025</span>
+        </div>
+        <div class="honor-row">
+          <svg viewBox="0 0 24 24"><path d="M12 4 22 20H2z"/></svg>
+          <span class="t" data-vi="Sinh viên Giỏi của Học kỳ">Honorable Student of the Trimester</span><span class="yr" data-vi="Hè 2025">Summer 2025</span>
+        </div>
+        <div class="honor-row">
+          <svg viewBox="0 0 24 24"><path d="M12 4 22 20H2z"/></svg>
+          <span class="t" data-vi="Sinh viên Giỏi của Học kỳ">Honorable Student of the Trimester</span><span class="yr" data-vi="Xuân 2026">Spring 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer class="foot" id="contact">
+  <div class="wrap foot-in reveal" data-stagger>
+    <span class="eyebrow" style="color:rgba(255,255,255,.85)" data-vi="// Cùng tạo nên điều gì đó">// Let's build something</span>
+    <h2 style="margin-top:.6rem;" data-vi="Sẵn sàng cho công việc<br>&amp; hợp tác về AI">Open to AI roles<br>&amp; collaboration</h2>
+    <a class="email" href="mailto:dylanvu6868@gmail.com">dylanvu6868@gmail.com</a>
+    <div class="foot-links">
+      <a href="tel:+84976774094">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        +84 976 774 094</a>
+      <a href="mailto:dylanvu6868@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Email</a>
+      <a href="https://github.com/dylanvu6868" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        dylanvu6868</a>
+      <a href="https://www.linkedin.com/in/duong-hai-vu" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0M0 8h5v16H0zm7.5 0H12v2.2h.1c.6-1.1 2.1-2.2 4.2-2.2 4.5 0 5.3 2.9 5.3 6.7V24h-5v-7.6c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-5z"/></svg>
+        Duong Hai Vu</a>
+    </div>
+    <div class="foot-bottom">
+      <span data-vi="Vũ Hải Dương — Xuân Mai, Hà Nội">Vu Hai Duong — Xuan Mai, Hanoi</span>
+      <span data-vi="Thiết kế bởi Dylan Vu · 2026">Designed by Dylan Vu · Built 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- BILINGUAL TOGGLE (EN / VI) ---------- */
+  (function () {
+    const KEY = 'site-lang';
+    const els = document.querySelectorAll('[data-vi]');
+    // Snapshot the original English markup so we can switch back to it.
+    els.forEach(el => { el.dataset.en = el.innerHTML; });
+
+    const titles = {
+      en: 'Vu Hai Duong — AI Engineer',
+      vi: 'Vũ Hải Dương — Kỹ sư AI'
+    };
+    const tabs = document.querySelectorAll('#langToggle [data-lang]');
+
+    function apply(lang) {
+      if (lang !== 'vi') lang = 'en';
+      els.forEach(el => {
+        const txt = el.dataset[lang];
+        if (txt !== undefined) el.innerHTML = txt;
+      });
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.lang === lang));
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+
+    tabs.forEach(t => t.addEventListener('click', () => apply(t.dataset.lang)));
+
+    // Detect Vietnamese from the browser's preferred languages (e.g. "vi", "vi-VN").
+    function detect() {
+      const list = navigator.languages || [navigator.language || ''];
+      return list.some(l => String(l).toLowerCase().startsWith('vi')) ? 'vi' : 'en';
+    }
+
+    // Use the saved choice if the visitor has picked one before; otherwise auto-detect.
+    let initial = null;
+    try { initial = localStorage.getItem(KEY); } catch (e) {}
+    apply(initial || detect());
+  })();
+
+  /* ---------- THEME TOGGLE (light / dark) ---------- */
+  (function () {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('site-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    });
+  })();
+
+  /* ---------- LIVE GITHUB PROJECTS ---------- */
+  (function () {
+    const grid = document.getElementById('repoGrid');
+    if (!grid) return;
+    const USER = 'dylanvu6868';
+    const CACHE_KEY = 'gh-repos-v1', TTL = 6 * 3600 * 1000;
+    const FEATURED = ['agrirag', 'cooking_chatbot_basics', 'chatbot_in4pdf'];  // already shown above
+    // hide coursework / config / template repos
+    const SKIP = /(^2a\d)|(^lab\d)|(^batch0)|(^lecture)|(^mln)|(^day\d)|(cohort)|(-vuhaiduong-)|(\.github\.io$)|(^dylanvu6868$)|(^ai-product-lab)|(hello_world)|(^astro-)/i;
+
+    const isVi = () => document.documentElement.lang === 'vi';
+    const esc = (s) => { const d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; };
+    const fmtDate = (iso) => new Date(iso).toLocaleDateString(isVi() ? 'vi-VN' : 'en-US', { year: 'numeric', month: 'short' });
+
+    function pick(all) {
+      return all
+        .filter(r => !r.fork && !r.archived && !SKIP.test(r.name) && FEATURED.indexOf(r.name.toLowerCase()) === -1)
+        .sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at)))
+        .slice(0, 6);
+    }
+
+    function render(repos) {
+      if (!repos.length) return;
+      grid.innerHTML = repos.map(r => `
+        <a class="repo" href="${esc(r.html_url)}" target="_blank" rel="noopener">
+          <h4>${esc(r.name.replace(/[-_]/g, ' '))}</h4>
+          <p>${esc(r.description || (isVi() ? 'Chưa có mô tả.' : 'No description yet.'))}</p>
+          <div class="meta">
+            ${r.language ? `<span><span class="dot"></span>${esc(r.language)}</span>` : ''}
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 18.5 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>${r.stargazers_count}</span>
+            <span>${fmtDate(r.pushed_at)}</span>
+          </div>
+        </a>`).join('');
+    }
+
+    // Show cached repos instantly if fresh, then refresh from the network.
+    try {
+      const c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      if (c && Date.now() - c.t < TTL) render(pick(c.data));
+    } catch (e) {}
+
+    fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=pushed`)
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), data })); } catch (e) {}
+        render(pick(data));
+      })
+      .catch(() => {
+        if (!grid.querySelector('.repo')) {
+          grid.innerHTML = '<p class="oss-note">' +
+            (isVi() ? 'Không tải được từ GitHub lúc này. Xem tại ' : 'Couldn’t load from GitHub right now. Browse them at ') +
+            '<a href="https://github.com/' + USER + '" target="_blank" rel="noopener">github.com/' + USER + '</a>.</p>';
+        }
+      });
+  })();
+
+  /* ---------- MOTION (restrained preset; all transform/opacity, reduced-motion safe) ---------- */
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+
+  // Read the feel tokens once so JS and CSS share one source of truth.
+  const cs = getComputedStyle(document.documentElement);
+  const DUR    = (parseFloat(cs.getPropertyValue('--dur')) || 0.6) * 1000;
+  const EASE   = (cs.getPropertyValue('--ease') || 'cubic-bezier(.22,1,.36,1)').trim();
+  const TRAVEL = (cs.getPropertyValue('--travel') || '18px').trim();
+  const STEP   = parseFloat(cs.getPropertyValue('--stagger')) || 70;
+
+  // Stat counters tick up from 0; final value is already in the markup as a fallback.
+  function countUp(el) {
+    const raw = el.dataset.to, to = parseFloat(raw);
+    const dec = (raw.split('.')[1] || '').length, ms = 1400;
+    const start = performance.now(), ease = t => 1 - Math.pow(1 - t, 3);
+    (function tick(now) {
+      const t = Math.min((now - start) / ms, 1);
+      el.textContent = (to * ease(t)).toFixed(dec);
+      if (t < 1) requestAnimationFrame(tick); else el.textContent = to.toFixed(dec);
+    })(start);
+  }
+
+  if (reduce) {
+    reveals.forEach(el => el.classList.add('in'));   // CSS already neutralises transforms
+  } else {
+    // Hero load sequence — headline first, media settles in after, actions last.
+    [['.role-line', 0], ['.hero h1', 80], ['.hero-tag', 200], ['.portrait', 300], ['.hero-actions', 400]]
+      .forEach(([sel, delay]) => {
+        const el = document.querySelector(sel); if (!el) return;
+        el.animate(
+          [{ opacity: 0, transform: 'translateY(' + TRAVEL + ')' }, { opacity: 1, transform: 'none' }],
+          { duration: DUR, delay, easing: EASE, fill: 'both' }
+        );
+      });
+
+    // Scroll reveals — staggered children cascade for [data-stagger] wraps.
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        el.classList.add('in');
+        if (el.hasAttribute('data-stagger')) {
+          Array.from(el.children).forEach((c, i) => { c.style.transitionDelay = (i * STEP) + 'ms'; });
+        }
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    // Count the stats up when they scroll into view.
+    document.querySelectorAll('.count').forEach(el => {
+      new IntersectionObserver((es, o) => {
+        if (es[0].isIntersecting) { countUp(el); o.disconnect(); }
+      }, { threshold: 0.6 }).observe(el);
+    });
+
+    // Draw the journey curve when it enters view.
+    const path = document.querySelector('.curve .draw');
+    if (path) {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      const io2 = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            path.style.transition = 'stroke-dashoffset 1.6s ease';
+            path.style.strokeDashoffset = 0;
+            io2.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      io2.observe(document.querySelector('.timeline'));
+    }
+  }
+</script>
+</body>
+</html>
