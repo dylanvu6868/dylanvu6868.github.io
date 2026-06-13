@@ -588,6 +588,36 @@
     <div class="work-cards">
       <div class="pcard">
         <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="Sinh ảnh từ EEG (CLIP-StyleGAN)">EEG → Image (CLIP-StyleGAN)</h4>
+        <p data-vi="Pipeline sinh ảnh từ tín hiệu EEG — tiền xử lý và trích đặc trưng, mã hoá EEG
+          thành ảnh bằng spectrogram và recurrence plot, rồi huấn luyện StyleGAN có CLIP dẫn
+          hướng và đánh giá bằng điểm FID/IS. Từ hướng nghiên cứu EEG của tôi.">A generative pipeline that turns EEG signals into images — preprocessing and
+          feature extraction, EEG-to-image encoding via spectrograms and recurrence plots,
+          then a CLIP-guided StyleGAN trained and scored with FID/IS. From my EEG research.</p>
+        <div class="tags">Python · PyTorch · CLIP · StyleGAN · GAN · EEG</div>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/HDD-EEGMagicImage" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="Bot tin tức AI thời gian thực">Realtime News AI Bot</h4>
+        <p data-vi="Bot Telegram tự thu thập, khử trùng lặp, xếp hạng và tóm tắt tin tức theo thời
+          gian thực — nhiều nhà cung cấp tìm kiếm (Tavily/Brave/NewsAPI/SerpApi), tóm tắt bằng
+          Gemini, gửi bản tin định giờ, triển khai sẵn với Docker + systemd.">A Telegram bot that gathers, de-duplicates, ranks and summarises the day's news
+          in real time — pluggable search providers (Tavily/Brave/NewsAPI/SerpApi), Gemini
+          summaries, scheduled delivery, and Docker + systemd deploy.</p>
+        <div class="tags">Python · Gemini · Tavily/Brave · python-telegram-bot · Docker</div>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/telegram-news-ai-bot" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
         <h4 data-vi="Phát hiện Deepfake">Deepfake Detection</h4>
         <p data-vi="Pipeline phát hiện phân loại video là thật hay đã bị chỉnh sửa, với tiền xử lý
           video và trích xuất khuôn mặt chuyên biệt để tăng độ tin cậy trên các tập dữ liệu
@@ -821,7 +851,8 @@
     if (!grid) return;
     const USER = 'dylanvu6868';
     const CACHE_KEY = 'gh-repos-v1', TTL = 6 * 3600 * 1000;
-    const FEATURED = ['agrirag', 'cooking_chatbot_basics', 'chatbot_in4pdf'];  // already shown above
+    const FEATURED = ['agrirag', 'cooking_chatbot_basics', 'chatbot_in4pdf',
+                      'hdd-eegmagicimage', 'telegram-news-ai-bot'];  // already shown in Selected work
     // hide coursework / config / template repos
     const SKIP = /(^2a\d)|(^lab\d)|(^batch0)|(^lecture)|(^mln)|(^day\d)|(cohort)|(-vuhaiduong-)|(\.github\.io$)|(^dylanvu6868$)|(^ai-product-lab)|(hello_world)|(^astro-)/i;
 
