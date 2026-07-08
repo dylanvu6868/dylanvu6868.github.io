@@ -6,11 +6,11 @@
 <title>Vu Hai Duong — AI / ML Engineer</title>
 <meta name="description" content="Vu Hai Duong (Vũ Hải Dương) — final-year AI engineer at FPT University. Computer vision, retrieval-augmented LLMs (RAG), and on-device ML that ships to the real world.">
 <meta name="author" content="Vu Hai Duong">
-<meta name="theme-color" content="#2563EB">
+<meta name="theme-color" content="#111111">
 <link rel="canonical" href="https://dylanvu6868.github.io/">
 
 <!-- favicon: inline SVG (neural node mark, no extra file) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563EB'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='9' cy='10' r='2.4'/%3E%3Ccircle cx='9' cy='22' r='2.4'/%3E%3Ccircle cx='23' cy='16' r='2.8'/%3E%3Cpath d='M11 11 21 15M11 21 21 17'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='9' cy='10' r='2.4'/%3E%3Ccircle cx='9' cy='22' r='2.4'/%3E%3Ccircle cx='23' cy='16' r='2.8'/%3E%3Cpath d='M11 11 21 15M11 21 21 17'/%3E%3C/g%3E%3C/svg%3E">
 
 <!-- Open Graph / social share -->
 <meta property="og:type" content="website">
@@ -50,25 +50,24 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Geist+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* PALETTE — only 3 codes: blue #2563EB, white #FFFFFF, black #111316.
-       Greys/tints below are those same three at reduced opacity, not new colours. */
-    --accent:#2563EB;        /* blue — the single accent (bands, headings, links) */
-    --accent-deep:#2563EB;   /* same blue (kept to one code) — coloured bands + footer */
-    --ink:#111316;           /* black — body text */
+    /* PALETTE — strictly minimalist black and white. */
+    --accent:#111111;        /* black — the single accent */
+    --accent-deep:#111111;   /* black — coloured bands + footer */
+    --ink:#111111;           /* black — body text */
     --paper:#FFFFFF;         /* white — page bg */
-    --mist:rgba(37,99,235,.06);   /* faint blue wash — tinted sections */
-    --line:rgba(17,19,22,.12);    /* hairlines — black @ low alpha */
+    --mist:rgba(17,17,17,.04);   /* faint wash — tinted sections */
+    --line:rgba(17,17,17,.12);    /* hairlines */
     --card:#FFFFFF;          /* white — card surfaces */
-    --muted:rgba(17,19,22,.62);   /* body small text — black @ alpha */
-    --muted-2:rgba(17,19,22,.52); /* labels */
-    --muted-3:rgba(17,19,22,.46); /* tags / mono meta */
-    --accent-text:var(--accent); /* blue accent used as text */
-    --font-display:"Anton",sans-serif;
-    --font-body:"Inter",sans-serif;
-    --font-mono:"Space Mono",monospace;
+    --muted:rgba(17,17,17,.62);   /* body small text */
+    --muted-2:rgba(17,17,17,.52); /* labels */
+    --muted-3:rgba(17,17,17,.46); /* tags / mono meta */
+    --accent-text:var(--accent); /* accent used as text */
+    --font-display:"Playfair Display", "Lyon Text", serif;
+    --font-body:"Geist", "SF Pro Display", "Helvetica Neue", sans-serif;
+    --font-mono:"Geist Mono", "SF Mono", monospace;
     /* motion — restrained / cinematic preset (pairs with this editorial style) */
     --dur:.6s;                          /* entrances / reveals */
     --dur-fast:.22s;                    /* hover / micro-interactions */
@@ -215,16 +214,196 @@
              letter-spacing:.08em;opacity:.85;margin-top:.25rem;}
   .stack-line{font-family:var(--font-mono);font-size:.66rem;color:var(--muted-3);
               letter-spacing:.03em;margin-top:1.2rem;}
-  .work-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
-  .pcard{position:relative;border:1px solid var(--line);background:var(--card);padding:1.6rem 1.6rem 1.6rem 2.4rem;}
+  .work-cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.5rem;margin-top:1.5rem;}
+  .pcard{position:relative;border:1px solid var(--line);background:var(--card);padding:1.6rem 1.6rem 1.6rem 2.4rem;
+         display:flex;flex-direction:column;justify-content:space-between;min-height:220px;}
   .pcard .vlabel{position:absolute;left:.5rem;top:1.4rem;writing-mode:vertical-rl;
                  transform:rotate(180deg);font-family:var(--font-mono);font-size:.6rem;
                  text-transform:uppercase;letter-spacing:.2em;color:var(--accent-text);}
   .pcard h4{font-family:var(--font-display);text-transform:uppercase;color:var(--ink);
             font-size:1.3rem;letter-spacing:-.01em;margin:0 0 .5rem;}
-  .pcard p{margin:0 0 .8rem;font-size:.88rem;color:var(--muted);}
-  .pcard .tags{font-family:var(--font-mono);font-size:.64rem;color:var(--muted-3);letter-spacing:.03em;}
-  @media(max-width:860px){.work-flag{grid-template-columns:1fr;}.work-cards{grid-template-columns:1fr;}}
+  .pcard p{margin:0 0 1rem;font-size:.88rem;color:var(--muted);line-height:1.5;}
+  .pcard .tags{font-family:var(--font-mono);font-size:.64rem;color:var(--muted-3);letter-spacing:.03em;margin-top:auto;}
+  .pcard .card-links{margin-top:1rem;}
+
+  /* ---------- VITBA FLAGSHIP ---------- */
+  .vitba-flagship {
+    display: grid;
+    grid-template-columns: 1.15fr 1.3fr;
+    gap: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1.5px solid var(--accent);
+    background: var(--card);
+  }
+  .vitba-info {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1.5px solid var(--accent);
+  }
+  .vitba-info-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .vitba-info h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .vitba-info .desc {
+    margin: 0.5rem 0 1.2rem 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .vitba-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+  .feature-item svg {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: var(--accent-text);
+  }
+  .feature-item span b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .feature-item span {
+    color: var(--muted);
+  }
+  .vitba-info-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .vitba-preview {
+    background: var(--mist);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ---------- PREVIEW GALLERY ---------- */
+  .preview-gallery {
+    width: 100%;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .gallery-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-self: center;
+    background: var(--mist);
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .gallery-tab {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 0.45rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .gallery-tab:hover {
+    color: var(--ink);
+  }
+  .gallery-tab.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .gallery-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.58;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 16px 40px rgba(17,17,17,0.06);
+  }
+  html[data-theme="dark"] .gallery-viewport {
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    border-color: var(--line);
+  }
+  .gallery-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.01);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    pointer-events: none;
+  }
+  .gallery-img.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  /* ---------- DARK THEME VITBA OVERRIDES ---------- */
+  html[data-theme="dark"] .vitba-flagship {
+    border-color: var(--line);
+  }
+  html[data-theme="dark"] .vitba-info {
+    border-right-color: var(--line);
+  }
+
+  @media(max-width:990px){
+    .vitba-flagship {
+      grid-template-columns: 1fr;
+    }
+    .vitba-info {
+      border-right: none;
+      border-bottom: 1.5px solid var(--accent);
+      padding: 2rem;
+    }
+    html[data-theme="dark"] .vitba-info {
+      border-bottom-color: var(--line);
+    }
+    .vitba-preview {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media(max-width:860px){
+    .work-flag{grid-template-columns:1fr;}
+    .work-cards{grid-template-columns:1fr;}
+  }
+  @media(max-width:1024px) and (min-width:761px){
+    .work-cards{grid-template-columns:repeat(2, 1fr);}
+  }
 
   /* ---------- JOURNEY (winding numbered) ---------- */
   .journey{background:var(--accent-deep);color:#fff;overflow:hidden;}
@@ -343,22 +522,24 @@
 
   /* ---------- DARK THEME ---------- */
   html[data-theme="dark"]{
-    /* Same 3 codes, flipped: black page, white text, blue accent (+ white @ alpha). */
-    --paper:#111316;        /* black — page bg */
+    /* Minimalist black and white dark theme. */
+    --paper:#111111;        /* black — page bg */
     --ink:#FFFFFF;          /* white — body text */
-    --mist:rgba(255,255,255,.045); /* tinted sections — white @ low alpha on black */
+    --mist:rgba(255,255,255,.045); /* tinted sections */
     --line:rgba(255,255,255,.14);  /* hairlines */
     --card:rgba(255,255,255,.05);  /* card surfaces */
     --muted:rgba(255,255,255,.66); /* body small text */
     --muted-2:rgba(255,255,255,.55);/* labels */
     --muted-3:rgba(255,255,255,.48);/* tags */
-    --accent-text:#2563EB;  /* blue accent — same code in dark */
+    --accent-text:#FFFFFF;  /* white accent in dark mode */
   }
   html[data-theme="dark"] body{background:var(--paper);color:var(--ink);}
   html[data-theme="dark"] .work-flag h3,
   html[data-theme="dark"] .pcard h4,
   html[data-theme="dark"] .stat .n{color:var(--ink);}
   html[data-theme="dark"] .honor-row svg{fill:var(--accent-text);}
+  html[data-theme="dark"] ::selection{background:rgba(255,255,255,0.99);color:#111111;}
+  html[data-theme="dark"] :focus-visible{outline-color:#FFFFFF;}
   /* hero / journey / footer keep their bold blue — intentionally unchanged */
 
   /* ---------- REDUCED MOTION: honour the OS setting everywhere ---------- */
@@ -545,49 +726,72 @@
     <span class="eyebrow" data-vi="// 03 — Dự án tiêu biểu">// 03 — Selected work</span>
     <h2 class="sec-head" style="color:var(--accent-text);margin:.4rem 0 0;" data-vi="Những thứ tôi<br>đã hoàn thiện">Things I've<br>shipped</h2>
 
-    <!-- flagship -->
-    <div class="work-flag">
-      <div class="body">
-        <span class="badge" data-vi="Dự án chủ lực · CV + LLM RAG">Flagship · CV + LLM RAG</span>
-        <h3 data-vi="AgriRAG — Nhận dạng bệnh lá lúa kết hợp RAG">AgriRAG — Rice Leaf Disease Recognition with RAG</h3>
-        <p data-vi="Hệ thống đầu-cuối chẩn đoán 10 loại bệnh trên lá lúa từ một bức ảnh, rồi giải
-          thích cách điều trị kèm trích dẫn nguồn. EfficientNetB0 với học chuyển giao hai giai
-          đoạn đạt 99,01% độ chính xác trên 15.023 ảnh, dùng Focal Loss và trọng số nghịch
-          tần để xử lý mất cân bằng 1,8:1.">An end-to-end system that diagnoses 10 rice-leaf diseases from a photo, then
-          explains the treatment with citations. EfficientNetB0 with two-stage transfer
-          learning hits 99.01% test accuracy across 15,023 images, with Focal Loss and
-          inverse-frequency weighting to handle a 1.8:1 imbalance.</p>
-        <p data-vi="Lớp trả lời có căn cứ là một pipeline RAG lai — truy xuất dense bằng FAISS,
-          tìm kiếm từ khóa BM25, hợp nhất hạng đối ứng và tái xếp hạng cross-encoder — với
-          chunking thông minh bám cấu trúc và truy xuất cha–con trên kho tài liệu nông
-          nghiệp ~340 trang, phục vụ bởi backend FastAPI + SSE chạy LLaMA-3.3-70B.">The grounded-answer layer is a hybrid RAG pipeline — FAISS dense retrieval,
-          BM25 keyword search, reciprocal-rank fusion and cross-encoder re-ranking — with
-          smart, structure-aware chunking and parent–child retrieval over a ~340-page
-          agricultural corpus, served by a FastAPI + SSE backend on LLaMA-3.3-70B.</p>
-        <div class="stack-line">Python · EfficientNetB0 · MobileNetV3 · FAISS · BM25 · RRF · LLaMA 3.3 · FastAPI</div>
-      </div>
-      <div class="side">
-        <div>
-          <span class="eyebrow" style="color:rgba(255,255,255,.8)" data-vi="Qua các con số">By the numbers</span>
-          <div class="metrics">
-            <div class="metric"><div class="n">0.989</div><div class="l">Macro F1</div></div>
-            <div class="metric"><div class="n">74 ms</div><div class="l" data-vi="Độ trễ · Snapdragon 680">Latency · Snapdragon 680</div></div>
-            <div class="metric"><div class="n">0.91</div><div class="l" data-vi="Độ trung thực RAGAS">RAGAS faithfulness</div></div>
-            <div class="metric"><div class="n">~195 MB</div><div class="l" data-vi="RAM trên thiết bị">On-device RAM</div></div>
+    <!-- flagship: Vitba AI -->
+    <div class="vitba-flagship">
+      <div class="vitba-info">
+        <div class="vitba-info-top">
+          <span class="badge" data-vi="Dự án chủ lực · AI Marketing Platform">Flagship · AI Marketing Platform</span>
+          <h3 data-vi="Vitba AI — Nền tảng AI Marketing Số">Vitba AI — Digital Marketing AI Platform</h3>
+          <p class="desc" data-vi="Nền tảng All-in-One hội tụ các công cụ sáng tạo nội dung, tối ưu SEO, tự động hóa báo cáo và học liệu Marketing. Tích hợp 50+ công cụ AI chuyên sâu giúp đột phá hiệu suất làm việc mà không cần chuyển đổi giữa hàng tá ứng dụng.">An All-in-One platform consolidating essential marketing workflows: content creation, SEO, email, landing pages, and strategic reporting. Integrates 50+ specialized AI tools to boost marketing efficiency without juggling multiple subscriptions.</p>
+          
+          <div class="vitba-features">
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              <span data-vi="<b>Vitba Tool</b> — 50+ công cụ AI viết content, kịch bản TikTok, email, bài đăng Facebook chỉ trong vài giây."><b>Vitba Tool</b> — 50+ AI tools generating copy, TikTok scripts, emails, and ads in seconds.</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span data-vi="<b>Vitba SEO</b> — Phân tích từ khóa, gợi ý tối ưu bài viết lên top Google — không cần thuê chuyên gia."><b>Vitba SEO</b> — Keyword analysis and on-page recommendations to rank top on Google.</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <span data-vi="<b>Vitba Hub &amp; Report</b> — Báo cáo chiến lược tự động và dashboard quản lý chiến dịch real-time."><b>Vitba Hub &amp; Report</b> — Automated strategic reports and real-time campaign tracking dashboard.</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span data-vi="<b>Sắp ra mắt</b> — Email marketing thông minh (Vitba Mail), AI Landing Page, và AI Image/Video."><b>Coming Soon</b> — Smart Email Marketing (Vitba Mail), AI Landing Page, and AI Image/Video.</span>
+            </div>
           </div>
         </div>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.85);margin-top:1.4rem;" data-vi="TFLite lượng tử hóa FP16 — chạy ngoại tuyến trên điện thoại Android tầm trung.">
-          FP16-quantised TFLite — runs offline on a mid-range Android phone.</p>
-        <div class="card-links">
-          <a href="https://github.com/dylanvu6868/AgriRAG" target="_blank" rel="noopener" data-vi="Mã nguồn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-            View code</a>
+        
+        <div class="vitba-info-bottom">
+          <div class="card-links">
+            <a href="https://vitbaai.xyz" target="_blank" rel="noopener" data-vi="Trải nghiệm miễn phí">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Try Vitba AI for free
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vitba-preview">
+        <!-- Preview gallery -->
+        <div class="preview-gallery">
+          <div class="gallery-tabs">
+            <button class="gallery-tab active" data-img="ai" data-vi="Trình trợ lý AI">AI Workspace</button>
+            <button class="gallery-tab" data-img="hub" data-vi="Trung tâm Marketing">Marketing Hub</button>
+          </div>
+          <div class="gallery-viewport">
+            <img src="assets/vitba_ai.jpg" id="gallery-img-ai" class="gallery-img active" alt="Vitba AI Copywriting Assistant Interface" loading="lazy">
+            <img src="assets/vitba_hub.jpg" id="gallery-img-hub" class="gallery-img" alt="Vitba AI Marketing Dashboard Interface" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
 
     <!-- project cards -->
     <div class="work-cards">
+      <div class="pcard">
+        <span class="vlabel" data-vi="Dự án">Project</span>
+        <h4 data-vi="AgriRAG — Chẩn đoán bệnh lá lúa &amp; RAG">AgriRAG — Rice Leaf Disease RAG</h4>
+        <p data-vi="Hệ thống chẩn đoán 10 loại bệnh trên lá lúa (99,01% độ chính xác) tích hợp pipeline RAG lai (FAISS + BM25 + Cross-Encoder) trên LLaMA-3.3 để tư vấn điều trị. Chạy ngoại tuyến như TFLite lượng tử hóa trên Android.">An end-to-end diagnosis system for 10 rice leaf diseases (99.01% accuracy) integrated with a LLaMA-powered hybrid RAG pipeline (FAISS + BM25) for treatment advice. Deployed offline as quantised TFLite on Android.</p>
+        <div class="tags">Python · EfficientNet · FAISS · LLaMA 3.3 · FastAPI · TFLite</div>
+        <div class="card-links">
+          <a href="https://github.com/dylanvu6868/AgriRAG" target="_blank" rel="noopener" data-vi="Mã nguồn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            View code</a>
+        </div>
+      </div>
       <div class="pcard">
         <span class="vlabel" data-vi="Dự án">Project</span>
         <h4 data-vi="Bot tin tức AI thời gian thực">Realtime News AI Bot</h4>
@@ -924,6 +1128,23 @@
       io2.observe(document.querySelector('.timeline'));
     }
   }
+
+  /* ---------- VITBA AI INTERACTIVE PREVIEW ---------- */
+  (function () {
+    const galleryTabs = document.querySelectorAll('.gallery-tab');
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    galleryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        galleryTabs.forEach(t => t.classList.remove('active'));
+        galleryImgs.forEach(img => img.classList.remove('active'));
+        
+        tab.classList.add('active');
+        const imgId = 'gallery-img-' + tab.getAttribute('data-img');
+        const targetImg = document.getElementById(imgId);
+        if (targetImg) targetImg.classList.add('active');
+      });
+    });
+  })();
 </script>
 </body>
 </html>
